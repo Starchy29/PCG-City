@@ -28,6 +28,8 @@ public class TownGeneration : MonoBehaviour
             foreach(char letter in current) {
                 if(ruleset.ContainsKey(letter)) {
                     next += ruleset[letter];
+                } else {
+                    next += letter;
                 }
             }
             current = next;
