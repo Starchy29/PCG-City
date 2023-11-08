@@ -21,10 +21,12 @@ public class TownGeneration : MonoBehaviour
 
         // ruleset['T'] = "F<FTB>T>FTB<B"; this one rule accomplishes the layout, but with a lot of overlap
 
-        ruleset['T'] = "F<FLB>M>FRB<B";
-        ruleset['L'] = "F<F B>M>FRB<B";
-        ruleset['R'] = "F<FLB>M>F B<B";
-        ruleset['M'] = "FTB";
+        ruleset['T'] = "F<FRB>T>FLB<B";
+        ruleset['L'] = "<FRB>";
+        ruleset['R'] = ">FLB<";
+        //ruleset['L'] = "F<F B>M>FRB<B";
+        //ruleset['R'] = "F<FLB>M>F B<B";
+       // ruleset['M'] = "FTB";
     }
 
     private string GenerateFormula(string startState, int iterations) {
