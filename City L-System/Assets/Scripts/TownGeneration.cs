@@ -12,7 +12,7 @@ public class TownGeneration : MonoBehaviour
     void Start()
     {
         CreateRuleset();
-        string formula = GenerateFormula("T"/*"T>T>T>T"*/, iterations);
+        string formula = GenerateFormula("T>T>T>T", iterations);
         SpawnCity(formula);
     }
 
@@ -20,14 +20,9 @@ public class TownGeneration : MonoBehaviour
     {
         ruleset = new Dictionary<char, string>();
 
-        // ruleset['T'] = "F<FTB>T>FTB<B"; this one rule accomplishes the layout, but with a lot of overlap
-
         ruleset['T'] = "F<FRB>T>FLB<B";
         ruleset['L'] = "<FRB>";
         ruleset['R'] = ">FLB<";
-        //ruleset['L'] = "F<F B>M>FRB<B";
-        //ruleset['R'] = "F<FLB>M>F B<B";
-       // ruleset['M'] = "FTB";
     }
 
     private string GenerateFormula(string startState, int iterations) {
@@ -64,7 +59,6 @@ public class TownGeneration : MonoBehaviour
                     position += direction * roadLength;
                     Vector3 roadMiddle = (startPos + position) / 2;
                     road.transform.position = roadMiddle;
-                    break;
 
                     // place adjacent buildings
                     float distFromRoad = 0.3f;
